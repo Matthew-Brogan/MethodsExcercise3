@@ -74,7 +74,13 @@ Write a method to display the cube of the number up to given an integer.    (If 
             //Heating up 3
             Console.WriteLine("Please enter the number of indexes you would like to add to the array!");
             int indexCount = int.Parse(Console.ReadLine());
-            UserSetIndex(indexCount);
+            int[] UserArray = UserSetIndex(indexCount);
+            foreach(int answer in UserArray)
+            {
+                Console.WriteLine(answer);
+            }
+
+          
             //Heating up 4
             Console.WriteLine("Lets add all of out indexes together!");
             
@@ -184,10 +190,19 @@ Write a method to display the cube of the number up to given an integer.    (If 
             }
         }
         // Heating up 3 allow the user to set a number of indexes in an array
-        public static void UserSetIndex(int setme)
+        public static int[] UserSetIndex(int setme)
         {
-            var userArr = new Array[setme];
-            Console.WriteLine($"Your new array has {setme} indexes{userArr}! ");
+            //create array
+            int[] creatorsArray = new int[setme];
+            //random object
+            Random rng = new Random();
+            //llop through array
+            for(int i = 0; i < creatorsArray.Length; i++)
+            {//Assign random number 
+                creatorsArray[i] = rng.Next(20);
+            }
+            return creatorsArray;
+           
 
         }
         //Heating up 4 add all numbers in an array --hardcoded
